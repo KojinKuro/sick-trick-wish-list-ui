@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import "./Form.css";
 
@@ -44,7 +45,7 @@ export default function Form({ addTrick }) {
         onChange={(e) => setStance(e.target.value)}
         value={stance}
       >
-        <option value="" disabled selected>
+        <option value="" disabled>
           Choose your Stance
         </option>
         <option value="Regular">Regular</option>
@@ -62,7 +63,7 @@ export default function Form({ addTrick }) {
         onChange={(e) => setObstacle(e.target.value)}
         value={obstacle}
       >
-        <option value="" disabled selected>
+        <option value="" disabled>
           Choose your Obstacle
         </option>
         <option value="Flatground">Flatground</option>
@@ -82,3 +83,7 @@ export default function Form({ addTrick }) {
     </form>
   );
 }
+
+Form.propTypes = {
+  addTrick: PropTypes.func.isRequired,
+};

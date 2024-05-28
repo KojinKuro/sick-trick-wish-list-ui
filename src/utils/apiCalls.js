@@ -25,7 +25,9 @@ export function postTricks(trick) {
 }
 
 export function deleteTrick(id) {
-  return fetch(API_URL + `/${id}`)
+  return fetch(API_URL + `/${id}`, {
+    method: "DELETE",
+  })
     .then((r) => {
       if (!r.ok) throw new Error(`Could not delete trick with id of ${id}`);
       return r.json();
