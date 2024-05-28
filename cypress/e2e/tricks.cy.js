@@ -62,4 +62,43 @@ describe("empty spec", () => {
     cy.get("form > .trick-obstacle-input").should("have.value", null);
     cy.get("form > .trick-tutorial-input").should("have.value", "");
   });
+
+  it("will not allow post if you to have missing data", () => {
+    cy.intercept("POST", "http://localhost:3001/api/v1/tricks", {
+      body: {
+        stance: "Regular",
+        name: "Death",
+        obstacle: "Stairs",
+        tutorial: "www.foo.com",
+        id: 3,
+      },
+    });
+
+    cy.visit("/");
+
+    cy.get(".trick").should("have.length", 3);
+    // input in data
+    cy.get("form > .trick-stance-input").select("Regular");
+    cy.get("form > button").click();
+    cy.get(".trick").should("have.length", 3);
+    cy.get(".trick").last().contains("Regular Mace");
+    cy.get("form > .trick-name-input").type("Death");
+    cy.get("form > button").click();
+    cy.get(".trick").should("have.length", 3);
+    cy.get(".trick").last().contains("Regular Mace");
+    cy.get("form > .trick-obstacle-input").select("Stairs");
+    cy.get("form > button").click();
+    cy.get(".trick").should("have.length", 3);
+    cy.get(".trick").last().contains("Regular Mace");
+    cy.get("form > .trick-tutorial-input").type("www.foo.com");
+    cy.get("form > button").click();
+    cy.get(".trick").should("have.length", 4);
+    cy.get(".trick").last().contains("Regular Death");
+
+    // check that form is reset
+    cy.get("form > .trick-stance-input").should("have.value", null);
+    cy.get("form > .trick-name-input").should("have.value", "");
+    cy.get("form > .trick-obstacle-input").should("have.value", null);
+    cy.get("form > .trick-tutorial-input").should("have.value", "");
+  });
 });
