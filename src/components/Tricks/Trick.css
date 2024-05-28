@@ -1,0 +1,10 @@
+.trick {
+  background-color: aliceblue;
+  border-radius: 10px;
+  height: 150px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

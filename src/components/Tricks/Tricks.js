@@ -1,4 +1,5 @@
 import Trick from "./Trick";
+import "./Tricks.css";
 
 export default function Tricks({ tricks }) {
   const tricksElements = tricks.map((trick) => (

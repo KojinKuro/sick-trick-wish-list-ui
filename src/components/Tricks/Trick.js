@@ -1,3 +1,5 @@
+import "./Trick.css";
+
 export default function Trick({ trick }) {
   const { stance, name, obstacle, tutorial, id } = trick;
   return (
