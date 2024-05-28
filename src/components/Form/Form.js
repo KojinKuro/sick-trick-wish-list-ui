@@ -39,7 +39,11 @@ export default function Form({ addTrick }) {
 
   return (
     <form>
-      <select onChange={(e) => setStance(e.target.value)} value={stance}>
+      <select
+        className="trick-stance-input"
+        onChange={(e) => setStance(e.target.value)}
+        value={stance}
+      >
         <option value="" disabled selected>
           Choose your Stance
         </option>
@@ -47,12 +51,17 @@ export default function Form({ addTrick }) {
         <option value="Switch">Switch</option>
       </select>
       <input
+        className="trick-name-input"
         type="text"
         placeholder="Name of Trick"
         onChange={(e) => setName(e.target.value)}
         value={name}
       />
-      <select onChange={(e) => setObstacle(e.target.value)} value={obstacle}>
+      <select
+        className="trick-obstacle-input"
+        onChange={(e) => setObstacle(e.target.value)}
+        value={obstacle}
+      >
         <option value="" disabled selected>
           Choose your Obstacle
         </option>
@@ -63,6 +72,7 @@ export default function Form({ addTrick }) {
         <option value="Pool">Pool</option>
       </select>
       <input
+        className="trick-tutorial-input"
         type="text"
         placeholder="Link to Tutorial"
         onChange={(e) => setTutorial(e.target.value)}

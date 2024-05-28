@@ -12,7 +12,9 @@ function App() {
   }, []);
 
   const addTrick = (newTrick) => {
-    setTricks((prevTricks) => [...prevTricks, newTrick]);
+    postTricks(newTrick).then((postedTrick) => {
+      setTricks((prevTricks) => [...prevTricks, postedTrick]);
+    });
   };
 
   return (

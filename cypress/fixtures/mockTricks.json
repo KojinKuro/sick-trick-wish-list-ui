@@ -1,0 +1,23 @@
+[
+  {
+    "stance": "Regular",
+    "name": "Sword",
+    "obstacle": "Gravity",
+    "tutorial": "www.youtube.com",
+    "id": 0
+  },
+  {
+    "stance": "Switch",
+    "name": "Dagger",
+    "obstacle": "mind",
+    "tutorial": "www.vimeo.com",
+    "id": 1
+  },
+  {
+    "stance": "Regular",
+    "name": "Mace",
+    "obstacle": "Power",
+    "tutorial": "www.instagram.com",
+    "id": 2
+  }
+]
