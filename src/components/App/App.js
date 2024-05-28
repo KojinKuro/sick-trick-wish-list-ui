@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getTricks, postTricks } from "../../utils/apiCalls";
+import Form from "../Form/Form";
 import Tricks from "../Tricks/Tricks";
 import "./App.css";
 
@@ -11,14 +12,13 @@ function App() {
   }, []);
 
   const addTrick = (newTrick) => {
-    postTricks(newTrick).then(() => {
-      setTricks((prevTricks) => [...prevTricks, newTrick]);
-    });
+    setTricks((prevTricks) => [...prevTricks, newTrick]);
   };
 
   return (
     <div className="App">
       <h1>Sick Trick Wish List</h1>
+      <Form addTrick={addTrick} />
       <main>
         <Tricks tricks={tricks} />
       </main>
