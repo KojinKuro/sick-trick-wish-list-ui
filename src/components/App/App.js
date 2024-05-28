@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getTricks } from "../../utils/apiCalls";
+import { getTricks, postTricks } from "../../utils/apiCalls";
 import Tricks from "../Tricks/Tricks";
 import "./App.css";
 
@@ -9,6 +9,12 @@ function App() {
   useEffect(() => {
     getTricks().then(setTricks);
   }, []);
+
+  const addTrick = (newTrick) => {
+    postTricks(newTrick).then(() => {
+      setTricks((prevTricks) => [...prevTricks, newTrick]);
+    });
+  };
 
   return (
     <div className="App">
